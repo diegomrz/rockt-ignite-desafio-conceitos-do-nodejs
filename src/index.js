@@ -37,7 +37,7 @@ function checksAlreadyExistsUserAccount(request, response, next) {
 }
 
 app.post('/users', checksAlreadyExistsUserAccount, (request, response) => {
-  const { name, username } = request.body;
+  const { name, username } = request.body; //recebe via json
 
   const user = ({
     id: uuidv4(),
@@ -46,13 +46,16 @@ app.post('/users', checksAlreadyExistsUserAccount, (request, response) => {
     todos: [],
   });
 
-  users.push(user);
+  users.push(user); // Envia dados recebidos à lista users
 
   return response.status(201).json(user);
 });
 
 app.get('/todos', checksExistsUserAccount, (request, response) => {
-  const { user } = request;
+  const { user } = request; 
+  /* Importante entender aqui que o middleware 
+  já fez o trabalho de carregar o usuário e os todos
+  ao verificar se o usuário existe! */
   return response.json(user.todos);
 });
 
@@ -81,6 +84,9 @@ app.put('/todos/:id', checksExistsUserAccount, (request, response) => {
   
   const todo = user.todos
   .find(todo => todo.id === id);
+  /* O método find, busca dentro da lista de ToDos
+  dentro o usuário recebido a partir do middleware 
+  aquele que tiver o mesmo id passado por parâmetro*/
 
   if(!todo){ 
     return response.status(404).json({error: "Todo not found"
