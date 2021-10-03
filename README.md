@@ -1,5 +1,5 @@
 <h1 align="center">
-  RocketSeat - Desafio 09: Relacionamentos de Banco de Dados com Node.js
+  RocketSeat - Desafio 1: Conceitos de Node.js
 </h1>
 
 <p align="center">
