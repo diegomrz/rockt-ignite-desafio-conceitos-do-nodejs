@@ -52,7 +52,7 @@ app.post('/users', checksAlreadyExistsUserAccount, (request, response) => {
 });
 
 app.get('/todos', checksExistsUserAccount, (request, response) => {
-  const { user } = request.header;
+  const { user } = request;
   return response.json(user.todos);
 });
 
@@ -120,7 +120,7 @@ app.delete('/todos/:id', checksExistsUserAccount, (request, response) => {
 
   user.todos.splice(todosIndex, 1)
 
-  return response.status(204).json({});
+  return response.status(204).json([]);
 });
 
 module.exports = app;
