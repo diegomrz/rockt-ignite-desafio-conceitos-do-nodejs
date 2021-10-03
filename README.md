@@ -13,7 +13,7 @@
   </a>
 
   <a href="https://app.rocketseat.com.br/ignite/node-js/">
-    <img alt="Skylab RocketSeat" src="https://img.shields.io/badge/skylab-Rocketseat-blueviolet">
+    <img alt="Skylab RocketSeat" src="https://img.shields.io/badge/RocketSeat-Ignite-blueviolet">
   </a>
 
 </p>
